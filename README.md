@@ -1,6 +1,6 @@
 # Egis Deployment Log Analyzer
 
-A cloud-hosted web application to automate and analyze Intune and Autopilot deployment logs.
+A cloud-hosted web application built from scratch to automate and analyze Intune and Autopilot deployment logs.
 
 ## Features
 
