@@ -7,14 +7,10 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Use the backend URL from an environment variable.
-  // For local development, it falls back to "http://localhost:3000".
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-
   useEffect(() => {
     async function fetchDeployments() {
       try {
-        const res = await fetch(`${apiBaseUrl}/deployments`);
+        const res = await fetch(`/deployments`);
         if (!res.ok) {
           throw new Error('Failed to fetch deployments');
         }
@@ -28,7 +24,7 @@ export default function Home() {
       }
     }
     fetchDeployments();
-  }, [apiBaseUrl]);
+  }, []);
 
   return (
     <main style={{ padding: "2rem", fontFamily: "sans-serif" }}>
