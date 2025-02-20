@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchDeployments() {
       try {
-        // Use a relative URL so that requests are routed correctly
+        // Use a relative URL so that requests are routed to the backend rewrite
         const res = await fetch(`/deployments`);
         if (!res.ok) {
           throw new Error('Failed to fetch deployments');

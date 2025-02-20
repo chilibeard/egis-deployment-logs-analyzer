@@ -2,7 +2,10 @@
   "builds": [
     {
       "src": "src/frontend/package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/next",
+      "config": {
+        "rootDirectory": "src/frontend"
+      }
     },
     {
       "src": "src/backend/dist/main.js",
