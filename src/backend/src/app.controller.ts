@@ -9,4 +9,10 @@ export class AppController {
   getStatus(): string {
     return this.appService.getStatus();
   }
+
+  // New endpoint to list deployments
+  @Get('deployments')
+  getDeployments(): any {
+    return this.appService.getDeployments();
+  }
 } 
