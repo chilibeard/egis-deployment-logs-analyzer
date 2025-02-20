@@ -1,0 +1,18 @@
+{
+  "builds": [
+    {
+      "src": "src/frontend/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "src/backend/dist/main.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/deployments",
+      "destination": "/src/backend/dist/main.js"
+    }
+  ]
+} 
