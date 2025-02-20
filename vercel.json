@@ -1,18 +1,21 @@
 {
-  "builds": [
-    {
-      "src": "src/frontend/package.json",
-      "use": "@vercel/next"
-    },
-    {
-      "src": "src/backend/dist/main.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/deployments",
-      "destination": "/src/backend/dist/main.js"
-    }
-  ]
-} 
+    "builds": [
+      {
+        "src": "src/frontend/package.json",
+        "use": "@vercel/next",
+        "config": {
+          "rootDirectory": "src/frontend"
+        }
+      },
+      {
+        "src": "src/backend/dist/main.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/deployments",
+        "destination": "/src/backend/dist/main.js"
+      }
+    ]
+  } 

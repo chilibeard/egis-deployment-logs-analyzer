@@ -1,0 +1,7 @@
+{
+  "name": "egis-deployment-logs-analyzer-monorepo",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix src/backend run build"
+  }
+} 

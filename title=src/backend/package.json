@@ -1,0 +1,18 @@
+{
+  "name": "egis-backend",
+  "version": "1.0.0",
+  "description": "NestJS API for Egis Deployment Log Analyzer",
+  "dependencies": {
+    "@nestjs/common": "^9.x",
+    "@nestjs/core": "^9.x",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.x"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.x"
+  },
+  "scripts": {
+    "start": "nest start",
+    "build": "nest build"
+  }
+} 
