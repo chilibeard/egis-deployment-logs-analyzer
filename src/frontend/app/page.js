@@ -1,7 +1,10 @@
+"use client";
+
 import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [deployments, setDeployments] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchDeployments() {
@@ -13,8 +16,9 @@ export default function Home() {
         }
         const data = await res.json();
         setDeployments(data);
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        setError(err.message);
+        console.error(err);
       }
     }
     fetchDeployments();
@@ -24,7 +28,9 @@ export default function Home() {
     <main style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h1>Welcome to the Egis Deployment Log Analyzer</h1>
       <h2>Deployments Dashboard</h2>
-      {deployments.length > 0 ? (
+      {error ? (
+        <p style={{ color: 'red' }}>Error: {error}</p>
+      ) : deployments.length > 0 ? (
         <ul>
           {deployments.map((d) => (
             <li key={d.id}>
