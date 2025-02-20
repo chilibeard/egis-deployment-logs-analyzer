@@ -5,12 +5,16 @@ import { useEffect, useState } from 'react';
 export default function Home() {
   const [deployments, setDeployments] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Use the backend URL from an environment variable.
+  // For local development, it falls back to "http://localhost:3000".
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   useEffect(() => {
     async function fetchDeployments() {
       try {
-        // Update the backend URL if needed (for local testing, it could be http://localhost:3000/deployments)
-        const res = await fetch('http://localhost:3000/deployments');
+        const res = await fetch(`${apiBaseUrl}/deployments`);
         if (!res.ok) {
           throw new Error('Failed to fetch deployments');
         }
@@ -19,16 +23,20 @@ export default function Home() {
       } catch (err) {
         setError(err.message);
         console.error(err);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchDeployments();
-  }, []);
+  }, [apiBaseUrl]);
 
   return (
     <main style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h1>Welcome to the Egis Deployment Log Analyzer</h1>
       <h2>Deployments Dashboard</h2>
-      {error ? (
+      {isLoading ? (
+        <p>Loading deployments...</p>
+      ) : error ? (
         <p style={{ color: 'red' }}>Error: {error}</p>
       ) : deployments.length > 0 ? (
         <ul>
