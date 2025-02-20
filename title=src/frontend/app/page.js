@@ -10,8 +10,8 @@ export default function Home() {
   useEffect(() => {
     async function fetchDeployments() {
       try {
-        // For local testing, backend URL "http://localhost:3000/deployments" is used.
-        const res = await fetch('http://localhost:3000/deployments');
+        // Use a relative URL so that requests are routed correctly
+        const res = await fetch(`/deployments`);
         if (!res.ok) {
           throw new Error('Failed to fetch deployments');
         }
