@@ -1,3 +1,17 @@
+# Egis Deployment Log Analyzer
+
+A cloud-hosted web application built from scratch to automate and analyze Intune and Autopilot deployment logs.
+
+## Features
+
+- 📊 Real-time deployment status dashboard
+- 📱 Responsive, mobile-friendly interface
+- 🔄 Live updates using Supabase Realtime
+- 📝 Comprehensive log analysis
+- 🚀 Fast and efficient log processing
+
+## Project Structure
+
 ## Development Progress
 
 ### Completed
